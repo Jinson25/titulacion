@@ -10,7 +10,7 @@ export class UsersService {
   constructor(
     @InjectRepository(User)
     private readonly userRepository: Repository<User>,
-  ) { }
+  ) {}
 
   create(createUserDto: CreateUserDto) {
     return this.userRepository.save(createUserDto);
@@ -24,7 +24,8 @@ export class UsersService {
   findOneByEmailWithPassword(email: string) {
     return this.userRepository.findOne({
       where: { email },
-      select: ['id', 'username', 'email', 'password', 'role'],});
+      select: ['id', 'username', 'email', 'password', 'role'],
+    });
   }
 
   findAll() {

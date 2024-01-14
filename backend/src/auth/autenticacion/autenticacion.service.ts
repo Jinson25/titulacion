@@ -29,21 +29,26 @@ export class AutenticacionService {
       password: await bcrypt.hash(password, 10),
     });
 
-    const token = this.jwtService.sign({ email, role:"usuario" }, {
-      secret: process.env.JWT_SECRET,
-    });
+    const token = this.jwtService.sign(
+      { email, role: 'usuario' },
+      {
+        secret: process.env.JWT_SECRET,
+      },
+    );
 
     return {
       message: 'Usuario creado con éxito',
       username,
       email,
-      role: "",
+      role: '',
       token,
     };
   }
 
   async login(loginDto: LoginDto) {
-    const user = await this.usersService.findOneByEmailWithPassword(loginDto.email);
+    const user = await this.usersService.findOneByEmailWithPassword(
+      loginDto.email,
+    );
     if (!user) {
       throw new UnauthorizedException('El usuario no existe');
     }
