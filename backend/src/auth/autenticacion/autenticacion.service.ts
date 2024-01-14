@@ -43,7 +43,7 @@ export class AutenticacionService {
   }
 
   async login(loginDto: LoginDto) {
-    const user = await this.usersService.findOneByEmail(loginDto.email);
+    const user = await this.usersService.findOneByEmailWithPassword(loginDto.email);
     if (!user) {
       throw new UnauthorizedException('El usuario no existe');
     }
@@ -61,15 +61,10 @@ export class AutenticacionService {
 
     return {
       token,
-      user,
+      username: user.username,
     };
   }
   async profile({ email, role }: { email: string; role: string }) {
-    if (role !== 'admin') {
-      throw new UnauthorizedException(
-        'No tienes permisos para ver este perfil',
-      );
-    }
     return await this.usersService.findOneByEmail(email);
   }
 }
