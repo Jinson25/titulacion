@@ -12,6 +12,10 @@ import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { Auth } from '../decorators/auth.decorator';
 import { Role } from '../enums/rol.enum';
+import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
+
+@ApiTags('Usuarios')
+@ApiBearerAuth()
 @Auth(Role.USER)
 @Controller('users')
 export class UsersController {

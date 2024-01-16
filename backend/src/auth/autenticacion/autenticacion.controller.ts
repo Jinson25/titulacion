@@ -7,10 +7,12 @@ import { Role } from '../enums/rol.enum';
 import { Auth } from '../decorators/auth.decorator';
 import { ActiveUser } from 'src/common/decorators/active-user.decorator';
 import { UserActiveInterface } from 'src/common/interfaces/user-active.interface';
+import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 
 interface RequestWithUser extends Request {
   usuario: { email: string; role: string };
 }
+@ApiTags('Autenticacion')
 @Controller('auth')
 export class AutenticacionController {
   constructor(private readonly autenticacionService: AutenticacionService) {}
@@ -30,6 +32,7 @@ export class AutenticacionController {
   ) {
     return this.autenticacionService.login(loginDto);
   }
+  @ApiBearerAuth()
   @Get('profile')
   @Auth(Role.USER)
   profile(@ActiveUser() usuario: UserActiveInterface) {

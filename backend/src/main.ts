@@ -17,10 +17,11 @@ async function bootstrap() {
   );
 
   const config = new DocumentBuilder()
-    .setTitle('NestJS API')
-    .setDescription('API for NestJS')
+    .setTitle('API social media')
+    .setDescription('API en NestJS')
     .setVersion('1.0')
     .addTag('nestjs')
+    .addBearerAuth()
     .build();
 
     const document = SwaggerModule.createDocument(app, config);
