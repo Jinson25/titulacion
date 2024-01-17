@@ -2,20 +2,25 @@ import { Routes } from '@angular/router';
 import path from 'path';
 import { ClientComponent } from './pages/client/client.component';
 import { AdminComponent } from './pages/admin/admin.component';
+import { LoginPagesComponent } from './pages/client/login-pages/login-pages.component';
+import { NotFound404Component } from './components/not-found-404/not-found-404.component';
 
 export const routes: Routes = [
     {
         path: '', component: ClientComponent,
-        title: 'Client',
+        title: 'SocialMedia | Cliente',
         children: [
-            { path: '', redirectTo: 'home', pathMatch: 'full' },
+            { path: 'login', component: LoginPagesComponent, pathMatch: 'full'},
         ]
     },
     {
         path: 'dashboard', component: AdminComponent,
-        title: 'Admin',
+        title: 'SocialMedia | dashboard',
         children: [
             { path: '', component: AdminComponent, pathMatch: 'full' },
         ]
+    },
+    {
+        path: '**', component: NotFound404Component,
     }
 ];
