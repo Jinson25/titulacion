@@ -8,5 +8,12 @@ import { Component } from '@angular/core';
   styleUrl: './navbar.component.css'
 })
 export class NavbarComponent {
+  menuItems = [
+    { name: 'Inicio', link: '/home' },
+    { name: 'Servicios', link: '/services' },
+    { name: 'Chat', link: '/forum' }
+  ];
+  jinson = 'Jinson';
 
+  isLogged = true;
 }

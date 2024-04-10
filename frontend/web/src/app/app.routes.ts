@@ -4,23 +4,27 @@ import { ClientComponent } from './pages/client/client.component';
 import { AdminComponent } from './pages/admin/admin.component';
 import { LoginPagesComponent } from './pages/client/login-pages/login-pages.component';
 import { NotFound404Component } from './components/not-found-404/not-found-404.component';
+import { HomePageComponent } from './pages/client/home-page/home-page.component';
 
+const titleGlobal = 'YaviConnect |';
 export const routes: Routes = [
     {
         path: '', component: ClientComponent,
-        title: 'SocialMedia | Cliente',
+        title: `${titleGlobal} Cliente`,
         children: [
-            { path: 'login', component: LoginPagesComponent, pathMatch: 'full'},
+            {path: '', component: HomePageComponent, pathMatch: 'full', data: { animation: 'HomePage' }},
+            { path: 'login', component: LoginPagesComponent, pathMatch: 'full', data: { animation: 'HomePage' }, title: `${titleGlobal} Login` },
         ]
     },
     {
         path: 'dashboard', component: AdminComponent,
-        title: 'SocialMedia | dashboard',
+        title: `${titleGlobal} Dashboard`,
         children: [
             { path: '', component: AdminComponent, pathMatch: 'full' },
         ]
     },
     {
         path: '**', component: NotFound404Component,
+        title: `${titleGlobal} 404`,
     }
 ];
