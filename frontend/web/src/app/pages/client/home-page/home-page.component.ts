@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Product } from '../../../shared/interfaces/product.interface';
+import { ProductService } from '../../../services/product.service';
 
 @Component({
   selector: 'app-home-page',
@@ -7,15 +9,27 @@ import { Component } from '@angular/core';
   templateUrl: './home-page.component.html',
   styleUrl: './home-page.component.css'
 })
-export class HomePageComponent {
-  public user!: any[]; // Datos de las publicaciones
+export class HomePageComponent implements OnInit {
+  products: Product[] = [];
+  loading: boolean = true;
+  error: string = '';
 
-  calculateFlex(likes: number): string {
-    // Lógica para calcular el factor de flexibilidad basado en la cantidad de likes
-    // Puedes ajustar esta lógica según tus preferencias
-    const baseFlex = 1; // Factor de flexibilidad base
-    const flexIncrement = 0.1; // Incremento de flexibilidad por like
+  constructor(private productService: ProductService) {}
 
-    return `${baseFlex + likes * flexIncrement}`;
+  ngOnInit(): void {
+    this.loadProducts();
+  }
+
+  loadProducts(): void {
+    this.productService.getProducts().subscribe({
+      next: (data) => {
+        this.products = data;
+        this.loading = false;
+      },
+      error: (err) => {
+        this.error = 'Error loading products';
+        this.loading = false;
+      }
+    });
   }
 }

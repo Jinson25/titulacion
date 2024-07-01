@@ -1,62 +1,44 @@
 <header class="sticky top-0 z-10 bg-jinson-800">
-  <div
-    class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center"
-  >
-    <a
-      href="/"
-      class="flex items-center text-jinson-50 font-extrabold mb-4 md:mb-0"
-    >
-      <span class="ml-3 text-xl logo">YaviCoonect</span>
+  <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+    <a href="/" class="flex items-center text-jinson-50 font-extrabold mb-4 md:mb-0">
+      <span class="ml-3 text-xl logo">Truequecito</span>
     </a>
 
-    <nav
-      class="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center"
-    >
+    <nav class="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
       @for(item of menuItems; track item){
-      <a
-        href="{{ item.link }}"
-        class="text-jinson-50 font-extrabold mr-5 hover:text-gray-900"
-        >{{ item.name }}</a
-      >
+        <a href="{{ item.link }}" class="text-jinson-50 font-extrabold mr-5 hover:text-gray-900">{{ item.name }}</a>
       }
     </nav>
+
     @if(isLogged == true){
-        <div class="flex items-center">
-          <a href="/profile" class="text-jinson-50 font-extrabold mr-5 hover:text-gray-900">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
-              <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
-              <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+      <div class="flex items-center">
+        <div class="icon-container">
+          <a href="/create-product" class="text-jinson-50 font-extrabold mr-5 hover:text-gray-900">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-patch-plus" viewBox="0 0 16 16">
+              <path fill-rule="evenodd" d="M8 5.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V10a.5.5 0 0 1-1 0V8.5H6a.5.5 0 0 1 0-1h1.5V6a.5.5 0 0 1 .5-.5"/>
+              <path d="m10.273 2.513-.921-.944.715-.698.622.637.89-.011a2.89 2.89 0 0 1 2.924 2.924l-.01.89.636.622a2.89 2.89 0 0 1 0 4.134l-.637.622.011.89a2.89 2.89 0 0 1-2.924 2.924l-.89-.01-.622.636a2.89 2.89 0 0 1-4.134 0l-.622-.637-.89.011a2.89 2.89 0 0 1-2.924-2.924l.01-.89-.636-.622a2.89 2.89 0 0 1 0-4.134l.637-.622-.011-.89a2.89 2.89 0 0 1 2.924-2.924l.89.01.622-.636a2.89 2.89 0 0 1 4.134 0l-.715.698a1.89 1.89 0 0 0-2.704 0l-.92.944-1.32-.016a1.89 1.89 0 0 0-1.911 1.912l.016 1.318-.944.921a1.89 1.89 0 0 0 0 2.704l.944.92-.016 1.32a1.89 1.89 0 0 0 1.912 1.911l1.318-.016.921.944a1.89 1.89 0 0 0 2.704 0l.92-.944 1.32.016a1.89 1.89 0 0 0 1.911-1.912l-.016-1.318.944-.921a1.89 1.89 0 0 0 0-2.704l-.944-.92.016-1.32a1.89 1.89 0 0 0-1.912-1.911z"/>
             </svg>
           </a>
-          <a href="/favorites" class="text-jinson-50 font-extrabold mr-5 hover:text-gray-900">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-balloon-heart" viewBox="0 0 16 16">
-              <path fill-rule="evenodd" d="m8 2.42-.717-.737c-1.13-1.161-3.243-.777-4.01.72-.35.685-.451 1.707.236 3.062C4.16 6.753 5.52 8.32 8 10.042c2.479-1.723 3.839-3.29 4.491-4.577.687-1.355.587-2.377.236-3.061-.767-1.498-2.88-1.882-4.01-.721zm-.49 8.5c-10.78-7.44-3-13.155.359-10.063q.068.062.132.129.065-.067.132-.129c3.36-3.092 11.137 2.624.357 10.063l.235.468a.25.25 0 1 1-.448.224l-.008-.017c.008.11.02.202.037.29.054.27.161.488.419 1.003.288.578.235 1.15.076 1.629-.157.469-.422.867-.588 1.115l-.004.007a.25.25 0 1 1-.416-.278c.168-.252.4-.6.533-1.003.133-.396.163-.824-.049-1.246l-.013-.028c-.24-.48-.38-.758-.448-1.102a3 3 0 0 1-.052-.45l-.04.08a.25.25 0 1 1-.447-.224l.235-.468ZM6.013 2.06c-.649-.18-1.483.083-1.85.798-.131.258-.245.689-.08 1.335.063.244.414.198.487-.043.21-.697.627-1.447 1.359-1.692.217-.073.304-.337.084-.398"/>
-            </svg>
-          </a>
-          <a href="/cart" class="text-jinson-50 font-extrabold mr-5 hover:text-gray-900">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-bag" viewBox="0 0 16 16">
-              <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1m3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1z"/>
-            </svg>
-          </a>
+          <span class="icon-text">Agregar Producto</span>
         </div>
+
+        <div class="icon-container">
+          <a (click)="logout()" class="text-jinson-50 font-extrabold mr-5 hover:text-gray-900">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
+              <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0z"/>
+              <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708z"/>
+            </svg>
+          </a>
+          <span class="icon-text">Cerrar Sesión</span>
+        </div>
+      </div>
     }@else {
-      <button onclick="window.location.href='/login'"
-      class="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0"
-    >
-      Ingresar
-      <svg
-        fill="none"
-        stroke="currentColor"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="2"
-        class="w-4 h-4 ml-1"
-        viewBox="0 0 24 24"
-      >
-        <path d="M5 12h14M12 5l7 7-7 7"></path>
-      </svg>
-    </button>
+      <button onclick="window.location.href='/login'" class="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0">
+        Ingresar
+        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-1" viewBox="0 0 24 24">
+          <path d="M5 12h14M12 5l7 7-7 7"></path>
+        </svg>
+      </button>
     }
-    
   </div>
 </header>
